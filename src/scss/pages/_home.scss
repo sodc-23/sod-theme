@@ -1,0 +1,35 @@
+.wpcf7-form {
+    label {
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 15px;
+        display: inline-block;
+        color: #fff;
+    }
+
+    .wpcf7-form-control {
+        width: 100%;
+        border: 1px solid #fff;
+        background: #384554;
+        border-radius: 0;
+        padding: 5px 15px;
+        margin-bottom: 20px;
+        color: #fff;
+
+        &.wpcf7-textarea {
+            height: 100px;
+        }
+
+        &.wpcf7-submit {
+            width: 200px;
+            text-align: center;
+            color: #fff;
+            background: #0079c2;
+            border: 0;
+            line-height: 40px;
+            font-size: 18px;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+    }
+}

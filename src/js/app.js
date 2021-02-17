@@ -1,6 +1,14 @@
 import '../scss/app.scss';
 
-/* Your JS Code goes here */
-
-/* Demo JS */
-import './demo.js';
+jQuery(function() {
+    jQuery('.banner-slider').slick({
+        draggable: true,        
+        centerMode: true,        
+        centerPadding: 0,
+        slidesToShow: 1,
+        arrows: true,
+        dots: true,
+        swipeToSlide: true,
+        infinite: true
+      });
+});

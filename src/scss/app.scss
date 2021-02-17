@@ -25,7 +25,9 @@
 	- Alignments
 
 --------------------------------------------------------------*/
-
+* {
+	outline: 0;	
+}
 // Import variables and mixins.
 @import "abstracts/abstracts";
 
@@ -45,6 +47,12 @@
 # Base
 --------------------------------------------------------------*/
 @import "base/base";
+
+@import "../../node_modules/bulma/sass/utilities/_all.sass";
+@import "../../node_modules/bulma/sass/base/_all.sass";
+@import "../../node_modules/bulma/sass/elements/container.sass";
+@import "../../node_modules/bulma/sass/grid/_all.sass";
+
 
 /*--------------------------------------------------------------
 # Layouts
@@ -76,3 +84,12 @@
 /* Alignments
 --------------------------------------------- */
 @import "utilities/alignments";
+
+@import "../../node_modules/slick-carousel/slick/slick.css";
+@import "../../node_modules/slick-carousel/slick/slick-theme.css";
+
+@import "pages/header";
+
+@import "pages/footer";
+
+@import "pages/home";
