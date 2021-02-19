@@ -18,7 +18,9 @@ get_header();
 ?>
 			<div data-section="1">
                     <div class="container">
-                        <?php the_content(); ?>
+						<div class=" column is-10 is-offset-1">
+                        	<?php the_content(); ?>
+						</div>
                     </div>
                 </div>                
                 <?php

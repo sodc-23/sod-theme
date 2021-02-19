@@ -27,4 +27,18 @@ jQuery(function() {
       infinite: true
     });
   }
+
+  if (jQuery(".section3-carousel").length) {
+    jQuery('.section3-carousel').slick({
+      draggable: true,        
+      centerMode: true,        
+      centerPadding: 0,
+      slidesToShow: 1,
+      arrows: true,
+      dots: true,
+      swipeToSlide: true,
+      infinite: true
+    });
+  }
+
 });

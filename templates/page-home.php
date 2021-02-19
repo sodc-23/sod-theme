@@ -75,7 +75,7 @@ get_header();
                 <div data-section="3">
                     <div class="container">
                         <div class="columns">
-                            <div class="column">
+                            <div class="column is-half-desktop">
                                 <div class="section3-carousel">
                                     <?php 
 
@@ -105,9 +105,9 @@ get_header();
                     </div>
                 </div>
                 
-                <div data-section="4"  class="bg-color2">
+                <div data-section="4">
                     <div class="container">
-                        <h2 class="section-title"><?php echo get_field("section4_title"); ?></h2>
+                        <h2 class="section-title" style="margin-bottom: 50px;"><?php echo get_field("section4_title"); ?></h2>
 
                         <div class="columns">
                             <?php 
