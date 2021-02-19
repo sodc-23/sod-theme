@@ -1,0 +1,143 @@
+
+[data-section="1"] {
+    text-align: center;
+
+    h2 {
+        font-size: 30px;
+        line-height: 36px;
+        font-weight: 700;
+        margin-bottom: 40px;
+        color: #000;
+    }
+
+}
+
+.bg-color2 {
+    background-color: #f6f9fc;
+}
+
+.c-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    .icon {
+
+        flex: 1 0 64px;
+        max-width: 64px;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .content {
+        flex: 1 0;
+        padding-left: 50px;
+
+        h4 {
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 14px;
+            line-height: 20px;
+            letter-spacing: 0;
+            font-weight: 500;
+        }
+    }
+}
+
+.comercial-title {
+    font-size: 28px;
+    line-height: 34px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-align: center;
+    color: #000;
+}
+
+.features-title {
+    font-size: 30px;
+    line-height: 36px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-align: center;
+    color: #000;
+}
+
+.image_carousel {
+    .slide-item {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        min-height: 400px;
+
+        img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+    }
+}
+
+.icarousel_content {
+    h3 {
+        font-size: 28px;
+        line-height: 34px;
+        font-weight: 700;
+        color: #000;
+    }
+
+    margin-bottom: 50px;
+}
+
+.industy-wrap {
+    align-items: center;
+    display: flex;    
+}
+
+.industry-item {
+    a.title {
+        font-size: 19px;
+        line-height: 24px;
+        font-weight: 700;
+        color: #0079c2;
+        text-transform: uppercase;
+        display: inline-block;
+        margin-bottom: 30px;
+    }
+}
+
+#item_list_section {
+     &> .columns {
+        margin-bottom: 50px;
+        margin-top: 50px;
+
+      &:nth-child(2n) {
+          .column {
+              order: 0;
+          }
+
+          .industy-wrap {
+              order: 1;
+          }
+      }
+    }
+}
+
+.industry-featues-secton {
+    .column.is-one-third-tablet {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+}

@@ -61,6 +61,25 @@ function sod_register_new_menu() {
             'secondary-menu' => __('Secondary', 'Sod')
         )
     );
+
+    register_post_type( 'industry',
+        array(
+            'labels' => array(
+                'name' => __( 'Industry','qode' ),
+                'singular_name' => __( 'Industry Item','qode' ),
+                'add_item' => __('New Industry Item','qode'),
+                'add_new_item' => __('Add New Industry Item','qode'),
+                'edit_item' => __('Edit Industry Item','qode')
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'rewrite' => array('slug' => $slug),
+            'menu_position' => 4,
+            'show_ui' => true,
+            'supports' => array('author', 'title', 'editor', 'thumbnail', 'excerpt', 'page-attributes', 'comments')
+        )
+    );
+    
 }
 
 add_action( 'init', 'sod_register_new_menu');

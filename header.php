@@ -81,7 +81,7 @@
 	</header><!-- #masthead -->
 	
 	<?php
-	
+	if (is_front_page()):
 	$header = get_field('home_slide', 'options');				
 	?>
 	<div class="banner-slider">
@@ -110,3 +110,34 @@
 		endforeach;
 		?>		
 	</div>
+	<?php else: 
+	global $post;
+	$url = wp_get_attachment_url( get_post_thumbnail_id($post->ID), 'full' ); 
+	$url = $url ? $url : get_field("banner_image", "option");
+		?>
+
+	<div class="static-banner">		
+		<div class="slide-item">
+			
+			<div class="content">
+				<div class="float-bottom"></div>
+				<div class="float-right"></div>
+				<?php if (is_404()) {
+					echo "<h2>404</h2>";
+				} else {
+				 the_title( '<h2>', '</h2>'); 
+				}
+				?>
+				<?php if (is_page()) { the_field("custom");} ?>
+			</div>
+			<?php 
+			
+			if ($url): 
+			?>
+
+			<img class="bg" src="<?php echo $url; ?>" />
+			<?php endif; ?>
+		</div>			
+	</div>
+	<?php endif;?>
+	
