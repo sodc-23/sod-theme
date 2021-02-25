@@ -48,7 +48,9 @@ get_header();
                                         }
 
                                         if ($url) {
-                                            echo "<img src='$url' >";
+                                            echo "<a href='" . get_the_permalink() . "'>";
+                                            sod_generate_image_tag( $url);
+                                            echo "</a>";
                                         }
                                         ?>
                                     </div>
@@ -81,7 +83,7 @@ get_header();
                             <div class="column is-half-tablet">
                                 <div class="c-content">
                                     <div class="icon">
-                                        <img src="<?php echo $icon; ?>" />
+                                        <?php sod_generate_image_tag( $icon); ?>                                        
                                     </div>
                                     <div class="content">
                                         <h4><?php echo $title; ?></h4>

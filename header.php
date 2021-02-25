@@ -96,14 +96,12 @@
 				<?php echo $head["text"]; ?></div>
 			<?php endif; ?>
 			<?php if (isset($head["image"])): 
-			?>
-			<img class="float" src="<?php echo $head["image"]; ?>" />
-
+			?>			
+			<?php sod_generate_image_tag($head["image"], ['float']); ?>
 			<?php endif; ?>
 
-			<?php if (isset($head["background_image"])) : ?>
-			<img class="bg" src="<?php echo $head["background_image"]; ?>" />
-
+			<?php if (isset($head["background_image"])) : ?>			
+			<?php sod_generate_image_tag($head["background_image"], ['bg']); ?>
 			<?php endif; ?>
 		</div>
 		<?php
@@ -130,13 +128,7 @@
 				?>
 				<?php if (is_page()) { the_field("custom");} ?>
 			</div>
-			<?php 
-			
-			if ($url): 
-			?>
-
-			<img class="bg" src="<?php echo $url; ?>" />
-			<?php endif; ?>
+			<?php sod_generate_image_tag($url, ['bg']); ?>
 		</div>			
 	</div>
 	<?php endif;?>

@@ -7,6 +7,7 @@
         line-height: 36px;
         font-weight: 700;
         margin-bottom: 40px;
+        font-family: museo-sans-condensed, sans-serif;
         color: #000;
     }
 
@@ -56,6 +57,7 @@
     font-size: 28px;
     line-height: 34px;
     font-weight: 700;
+    font-family: museo-sans-condensed, sans-serif;
     margin-bottom: 40px;
     text-align: center;
     color: #000;
@@ -68,6 +70,7 @@
     margin-bottom: 40px;
     text-align: center;
     color: #000;
+    font-family: museo-sans-condensed, sans-serif;
 }
 
 .image_carousel {
@@ -95,6 +98,7 @@
         font-size: 28px;
         line-height: 34px;
         font-weight: 700;
+        font-family: museo-sans-condensed, sans-serif;
         color: #000;
     }
 
@@ -164,4 +168,67 @@
             color: #000;
         }
     }
+}
+
+.item_list_container_from_{
+
+    &left {        
+        > div { 
+            padding: 0;
+
+            .columns {
+                .column {
+                    order: 0;
+
+                    &.industy-wrap {
+                        order: 1;
+
+                        @media only screen and (min-width: 768px) {
+                            .industry-item {
+                                padding-left: 40px;
+                            }
+                        }
+                    }
+                }
+            }            
+        }
+
+        &.shuffle {
+             > div {
+                &:nth-child(2n) {
+                    .column {
+                        order: 1;
+
+                        &.industy-wrap {
+                            order: 0;
+                        }
+                    }
+                }
+             }
+        }
+    }
+
+    &.shuffle {
+        > div {
+            padding: 0;
+
+            &:nth-child(2n) {
+                .column {
+                    order: 0;
+
+                    &.industy-wrap {
+                        order: 1;
+
+                        @media only screen and (min-width: 768px) {
+                            .industry-item {
+                                padding-left: 40px;
+                            }
+                        }
+                        
+                    }
+                }
+            }
+        }
+    }
+
 }

@@ -3,7 +3,7 @@
 define( 'SOD_VERSION', rand());
 
 function sod_scripts() {
-    wp_register_style( 'adobe-font', 'https://use.typekit.net/skp3oru.css', array(), SOD_VERSION );
+    wp_register_style( 'adobe-font', 'https://use.typekit.net/prg2xec.css', array(), SOD_VERSION );
     wp_enqueue_style( 'adobe-font' );
 
     wp_register_style( 'sod-style', get_stylesheet_directory_uri() . '/dist/css/app.css', array(), SOD_VERSION );
@@ -14,6 +14,9 @@ function sod_scripts() {
     wp_register_script('sod-slick', get_stylesheet_directory_uri() .'/node_modules/slick-carousel/slick/slick.min.js', array ('jquery'), SOD_VERSION);
     wp_enqueue_script( 'sod-slick' );
 
+    wp_register_script('sod-lib', get_stylesheet_directory_uri() .'/vendor/lib.js', array (), SOD_VERSION);
+    wp_enqueue_script( 'sod-lib' );
+    
     wp_register_script('sod-script', get_stylesheet_directory_uri() .'/dist/js/app.js', array ('jquery'), SOD_VERSION);
     wp_enqueue_script( 'sod-script' );
 
@@ -110,3 +113,13 @@ if( function_exists('acf_add_options_page') ) {
 	
 }
 
+function sod_generate_image_tag($url, $classes=[]) {
+    if ($url) {
+        list($width, $height, $type, $attr) = getimagesize($url);
+        $className = implode(" ", $classes);
+        $placeholder = get_stylesheet_directory_uri() . '/img/transparent.png';
+        echo "<img src='$placeholder'  src='$placeholder' width='$width' height='$height' class='lazy $className' data-src='$url' />";
+    }
+
+    return ;
+}

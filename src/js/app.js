@@ -10,7 +10,8 @@ jQuery(function() {
       arrows: true,
       dots: true,
       swipeToSlide: true,
-      infinite: true
+      infinite: true,
+      fade: true
     });
 
   }
@@ -41,4 +42,20 @@ jQuery(function() {
     });
   }
 
+  var lazyContent = new LazyLoad({});
+  lazyContent.update();
 });
+
+
+window.lazyLoadOptions = {
+  
+};
+
+window.addEventListener(
+  "LazyLoad::Initialized",
+  function (event) {
+    window.lazyLoadInstance = event.detail.instance;
+  },
+  false
+);
+

@@ -26,7 +26,9 @@ get_header();
                     <div class="column">
                         <div class="p-content">
                             <figure>
-                                <img src="<?php echo $image;?>" />
+                                <a href="<?php echo $link; ?>">
+                                    <?php sod_generate_image_tag($image); ?>                                    
+                                </a>
                             </figure>
                             <p class="p-text">
                                 <a href="<?php echo $link; ?>">
@@ -59,8 +61,8 @@ get_header();
                                 ?>
                                 <div class="column">
                                     <div class="s-history">
-                                        <div class="icon">
-                                            <img src="<?php echo $icon; ?>" />
+                                        <div class="icon">                                            
+                                            <?php sod_generate_image_tag($icon); ?>     
                                         </div>
                                         <span class="number"><?php echo $number; ?></span>
                                         <p class="description"><?php echo $description; ?></p>
@@ -82,8 +84,8 @@ get_header();
                                     $carousels = get_field("section3-carousel");                                    
                                     foreach ($carousels as $carousel):
                                     ?>
-                                    <div class="carousel-item">
-                                        <img src="<?php echo $carousel["image"]; ?>" />
+                                    <div class="carousel-item">                                        
+                                        <?php sod_generate_image_tag( $carousel["image"]); ?>
                                     </div>
                                     <?php
                                     endforeach;
@@ -116,8 +118,8 @@ get_header();
                                     ?>
                                 <div class="column">
                                     <div class="s4-item">
-                                        <div class="icon">
-                                            <img src="<?php echo $column["image"]; ?>" />
+                                        <div class="icon">                                            
+                                            <?php sod_generate_image_tag( $column["image"]); ?>
                                         </div>
                                         <div class="content">
                                             <h5><?php echo $column["title"]; ?></h5>
