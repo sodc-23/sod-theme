@@ -41,15 +41,11 @@ get_header();
                                 <div class="industy-thumnail">
                                     <div class="thumbnail">
                                         <?php 
-                                        $item_list = get_field("item_list");
-                                        $url = "";
-                                        if ($item_list && count($item_list)) {
-                                            $url = $item_list[0]["image"];
-                                        }
+                                        $url = get_field("thumbnail_image");
 
                                         if ($url) {
-                                            echo "<a href='" . get_the_permalink() . "'>";
-                                            sod_generate_image_tag( $url);
+                                            echo "<a class='image-overlay' href='" . get_the_permalink() . "'>";
+                                            sod_generate_image_tag( $url );
                                             echo "</a>";
                                         }
                                         ?>

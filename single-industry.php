@@ -35,36 +35,37 @@ get_header();
                     <div class="container">
                         <div class="image_carousel">
 							
-								<?php foreach ($img_carousel as $img): ?>
-									<div class="slide-item">										
-										<?php sod_generate_image_tag( $img["image"]); ?>
-									</div>
-									<?php endforeach; ?>
+							<?php foreach ($img_carousel as $img): ?>
+								<div class="slide-item">
+									<a data-popup class="image-overlay" href="<?php echo $img["image"]; ?>">									
+									</a>
+									<?php sod_generate_image_tag( $img["image"]); ?>
+								</div>
+								<?php endforeach; ?>
 							
+						</div>
+
+						<div class="image_carousel icarousel_content">
+							
+							<?php foreach ($img_carousel as $img): ?>
+								<div class="slide-item">
+									<div class="columns is-multiline">
+										<div class="column is-one-third-desktop ">
+											<h3><?php echo $img["title"] ? $img["title"] : ""; ?></h3>
+										</div>
+										<div class="column">
+											<p><?php echo  $img["content"] ?  $img["content"] : ""; ?></p>
+										</div>
+									</div>
+								</div>									
+							<?php endforeach; ?>
+
 						</div>
                     </div>
                 </div>
 				<?php
 				endif;
-				
-				$carousel_title = get_field("image_carousel_title");
-				$carousel_content = get_field("image_carousel_content");
-				if ($carousel_title && $carousel_content):
-				?>
-
-				<div class="container icarousel_content">
-					<div class="columns is-multiline">
-						<div class="column is-one-third-desktop ">
-							<h3><?php echo $carousel_title ? $carousel_title : ""; ?></h3>
-						</div>
-						<div class="column">
-							<p><?php echo $carousel_content ? $carousel_content : ""; ?></p>
-						</div>
-					</div>
-				</div>
-
-				<?php 
-				endif;
+			
 				$item_image_pos = get_field("item_list_image_from_left");
 				$left = "";
 				$shuffle = "";
@@ -82,13 +83,18 @@ get_header();
 				if ($item_list && count($item_list) > 0):
 					foreach ($item_list as $item):
 						$bg_color = $item["background_color"];
+
+						$full_width = "";
+						if ($item["full_width"]) {
+							$full_width = "full_width";
+						}
 				?>
 				
 				<div data-section style="<?php echo $bg_color ? "background: $bg_color;" : ""; ?>">
-					<div class="container" id="item_list_section">
+					<div class="container item_list_section">
 						
-						<div class="columns">
-							<div class="column industy-wrap">
+						<div class="columns  is-multiline">
+							<div class="column industy-wrap <?php echo $full_width; ?>">
 								<div class="industry-item">									
 										
 										<a href="<?php echo $item["link"]; ?>" class="title"> <?php echo isset($item["title"]) ? $item["title"] : ""; ?> </a>	
@@ -96,15 +102,18 @@ get_header();
 										<p>
 											<?php echo isset($item["content"]) ? $item["content"] : ""; ?>
 										</p>
-									
-								</div>								
-							</div>
-
-							<div class="column">
-								<div class="thumbnail">										
-										<?php sod_generate_image_tag( $item["image"]); ?>
 								</div>
 							</div>
+							<?php if ($item["image"]) : ?>
+								<div class="column <?php echo $full_width; ?>">
+									<div class="thumbnail">	
+										
+										<a class='image-overlay'  href="<?php echo $item["link"]; ?>" />
+											<?php sod_generate_image_tag( $item["image"]); ?>
+										</a>
+									</div>
+								</div>
+							<?php endif; ?>
 						</div>
 						
 					</div>
@@ -174,6 +183,7 @@ get_header();
 					if ($brands && count($brands) > 0 ) : ?>
 				
 					<?php
+
 					foreach ($brands as $brand) :
 						$bd_image = $brand["brand"];
 						$brand_title = $brand["brand_title"];
@@ -185,7 +195,7 @@ get_header();
 				<div data-section  style="<?php echo $bgcolor ? "background: $bgcolor;" : ""; ?>" >
 					<div class="container brand_content">
 						<div class="columns is-multiline">
-							<div class="column is-one-third-desktop ">								
+							<div class="column is-one-third-desktop text-center">								
 								<?php sod_generate_image_tag($bd_image); ?>
 							</div>
 							<div class="column">

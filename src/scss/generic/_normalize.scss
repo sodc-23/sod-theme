@@ -22,6 +22,7 @@ html {
 
 body {
 	margin: 0;
+	overflow: hidden;
 }
 
 /**
@@ -352,5 +353,16 @@ p {
 	font-size: 16px;
 	font-weight: 500;
 	line-height: 25px;
-	letter-spacing: 2px;
+	letter-spacing: 0;
+	color: #000;
+	text-align: left;
+
+	@media only screen and (min-width: $xl-desktop) {
+		font-size: 18px;
+		line-height: 30px;
+	}
+}
+
+.text-center {
+	text-align: center;	
 }

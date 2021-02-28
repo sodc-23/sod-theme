@@ -81,6 +81,14 @@
 	</header><!-- #masthead -->
 	
 	<?php
+
+	$gradient_color = get_field("gradient_for_featured_image");
+	$graident_class = "";
+
+	if ($gradient_color) {
+		$gradient_class = "gradient_bg";
+	}
+
 	if (is_front_page()):
 	$header = get_field('home_slide', 'options');				
 	?>
@@ -114,7 +122,7 @@
 	$url = $url ? $url : get_field("banner_image", "option");
 		?>
 
-	<div class="static-banner">		
+	<div class="static-banner <?php echo $gradient_class; ?>">		
 		<div class="slide-item">
 			
 			<div class="content">

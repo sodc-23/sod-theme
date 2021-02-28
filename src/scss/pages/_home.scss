@@ -96,12 +96,8 @@ h2.section-title{
     font-family: museo-sans-condensed, sans-serif;
 }
 
-p.section-sub-title {
-    font-size: 16px;
-    line-height: 25px;
-    font-weight: 500;    
-    margin: 0 auto;
-    color: #000;
+p.section-sub-title {    
+    margin: 0 auto;    
 }
 
 .section2-content {
@@ -113,6 +109,7 @@ p.section-sub-title {
 .s-history {
     text-align: center;
     margin-top: 20px;
+    padding-top: 20px;
     margin-bottom: 20px;
 
     .number {
@@ -123,10 +120,12 @@ p.section-sub-title {
     }
 
     .description {
-        font-size:13px;
-        line-height: 15px;
+        font-size: 15px;
+        line-height: 18px;
         letter-spacing: 0;
-        color: #000;        
+        font-weight: 900;
+        text-align: center;
+        color: #000;
     }
 
     .icon {
@@ -138,7 +137,7 @@ p.section-sub-title {
         
 
         img {
-            height: 80px;
+            height: 100px;
         }
     }
 }
@@ -153,6 +152,10 @@ p.section-sub-title {
         font-weight: 700;
         color: #000;
         margin-bottom: 30px;
+
+        @media only screen and (min-width: $xl-desktop) {
+            font-size: 21px;            
+        }
     }
 
     p {
@@ -178,8 +181,8 @@ p.section-sub-title {
     justify-content: space-between;
 
     .icon {
-        flex: 1 0 50px;
-        max-width: 50px;
+        flex: 1 0 75px;
+        max-width: 75px;
 
         img {
             width: 100%;
@@ -188,10 +191,10 @@ p.section-sub-title {
 
     .content {
         flex: 1 0;
-        padding-left: 30px;
+        padding-left: 20px;
         
         h5 {
-            font-size: 16px;
+            font-size: 18px;
             line-height: 20px;
             font-weight: 700;
             color: #000;
@@ -203,6 +206,14 @@ p.section-sub-title {
             line-height: 20px;
             font-weight: 500;
             color: #000;
+        }
+    }
+}
+
+body {
+    main#primary {
+        > div:last-child {
+            padding-bottom: 100px;
         }
     }
 }

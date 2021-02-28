@@ -26,7 +26,7 @@ get_header();
                     <div class="column">
                         <div class="p-content">
                             <figure>
-                                <a href="<?php echo $link; ?>">
+                                <a class="image-overlay" href="<?php echo $link; ?>">
                                     <?php sod_generate_image_tag($image); ?>                                    
                                 </a>
                             </figure>
@@ -44,7 +44,7 @@ get_header();
                 </div>
                 </div>
 
-                <div data-section="2"  class="bg-color2">
+                <div data-section="2"  class="bg-color2" data-type="counter">
                     <div class="container">
                         <div class="section2-content">
                             <h2 class="section-title"><?php echo get_field("section2_title"); ?></h2>
@@ -64,7 +64,7 @@ get_header();
                                         <div class="icon">                                            
                                             <?php sod_generate_image_tag($icon); ?>     
                                         </div>
-                                        <span class="number"><?php echo $number; ?></span>
+                                        <span class="number counter-elment" data-upto="<?php echo $number; ?>">0</span>
                                         <p class="description"><?php echo $description; ?></p>
                                     </div>
                                 </div>
@@ -107,7 +107,13 @@ get_header();
                     </div>
                 </div>
                 
-                <div data-section="4">
+                <?php 
+                $s4_bg_color = get_field("section4_backgroud_color");
+                if ($s4_bg_color) {
+                    $s4_bg_color = "style=\"background:$s4_bg_color;\"";
+                }
+                ?>
+                <div data-section="4" <?php echo $s4_bg_color; ?>>
                     <div class="container">
                         <h2 class="section-title" style="margin-bottom: 50px;"><?php echo get_field("section4_title"); ?></h2>
 

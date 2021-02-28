@@ -1,4 +1,3 @@
-
 h1 {
 	font-size: 45px;
 	font-weight: 900;
@@ -15,9 +14,10 @@ h4 {
 
 
 header {
+    
     &.site-header {
         background: #040707;
-        padding: 30px 0 30px;
+        padding: 20px 0 20px;
         border-bottom: 1px solid #808084;
         position: fixed;
         z-index: 999;
@@ -27,7 +27,7 @@ header {
     }
 
     .logo {
-        max-width: 220px;
+        max-width: 500px;
         width: 100%;
         display: block;
 
@@ -49,17 +49,18 @@ header {
 
 ul.menu {
     display: flex;
+    justify-content: center;
 
     @media only screen and (max-width: 1020px) {
         position: absolute;
         right: 0;
-        top: 50px;
+        top: 90px;
         left: 0;
         background: #040707;
     }
 
     li.menu-item{
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 900;
         padding: 0 20px;
         position: relative;
@@ -68,11 +69,35 @@ ul.menu {
         
         @media only screen and (max-width: 1020px) {
             text-align: right;
+            padding-top: 15px;
+            padding-bottom: 15px;
         }
 
         a {
             color: #fff;
-            text-transform: uppercase;           
+            text-transform: uppercase;
+            position: relative;
+            
+            &:before {
+                position: absolute;
+                bottom: -5px;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background: #fff;
+                content: '';
+                opacity: 0;
+                transition: height .3s,opacity .3s,transform .3s;
+                transform: translateY(-10px);
+                height: 2px;
+            }
+
+            &:hover {
+                &:before {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
         }
 
         &:after {
@@ -114,6 +139,11 @@ ul.menu {
                     path {
                         fill: #808084;
                     }
+                }
+
+                [data-icon="question"] {
+                    width: 15px;
+                    left: 5px;
                 }
             }
 
@@ -260,13 +290,15 @@ ul.menu {
                 font-weight: 900;
                 line-height: 40px;
                 margin-bottom: 10px;
+                text-transform: uppercase;
             }
 
             p {
                 font-size: 20px;
                 font-weight: 500;
                 margin-bottom: 30px;
-                padding-right: 50px;            
+                padding-right: 50px;
+                color: inherit;          
             }
 
             ul {
@@ -337,21 +369,33 @@ ul.menu {
 
 .static-banner {
     position: relative;
-    &:before {
-        position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        background: #040707;
-        content: "";
-        z-index: 1;
-        background: rgb(0,0,0);
-        background: linear-gradient(100deg, rgba(4,7,7,1) 0%, rgba(4,7,7,0.9) 50%, rgba(0,0,0,0) 55%);
+
+    &.gradient_bg {
+        &:before {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            background: #040707;
+            content: "";
+            z-index: 1;
+            background: rgb(0,0,0);
+            background: linear-gradient(100deg, rgba(4,7,7,1) 0%, rgba(4,7,7,0.9) 50%, rgba(0,0,0,0) 55%);
+        }
     }
     
     .slide-item {
         position: static!important;
+
+        .content {
+            background: rgb(0,0,0);
+            background: linear-gradient(100deg, rgba(4,7,7,1) 0%, rgba(4,7,7,0.9) 90%, rgba(0,0,0,0) 100%);
+        }
+
+        h2 {
+            text-transform: uppercase;
+        }
 
         img {
             &.bg {
@@ -364,12 +408,14 @@ ul.menu {
 
 
 .container {
-    @media only screen and (min-width: 1024px) {
+    @media only screen and (min-width: $xl-tablet) {
+        padding: 0 15px;
         max-width: 1024px!important;
         width: 100%;
     }
 
-    @media only screen and (min-width: 1548px) {
+    @media only screen and (min-width: $xl-desktop) {
+        padding: 0 40px;
         max-width: 1548px!important;
         width: 100%;
     }
@@ -423,4 +469,33 @@ ul.menu {
     bottom: 5px;
     text-align: left;
     padding-left: 50px;
+}
+
+a {
+    &.image-overlay {
+        display: block;
+        position: relative;
+
+        > img {
+            display: block;
+        }
+
+        &:before {
+            background: rgba(0, 0, 0, 0.4);
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            opacity: 0;
+            transition: all 0.3s;
+            content: "";
+        }
+
+        &:hover {
+            &:before {
+                opacity: 1;                
+            }
+        }
+    }
 }
