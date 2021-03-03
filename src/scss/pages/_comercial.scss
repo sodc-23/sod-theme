@@ -86,7 +86,7 @@
         margin: 0;
         padding: 0;
         position: relative;
-        min-height: 60vh;
+        min-height: 600px;
 
         img {
             position: absolute;
@@ -99,7 +99,7 @@
         }
 
         a.image-overlay {
-            min-height: 60vh;
+            min-height: 600px;
             z-index: -1;
         }
 
@@ -154,6 +154,16 @@
 
         .image-overlay {
             min-height: 400px;
+
+            img {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+                object-position: center center;
+                object-fit: cover;
+            }
         }
 
         &.full_width {
@@ -172,6 +182,12 @@
                 top: 0;
                 object-position: center center;
                 object-fit: cover;
+            }
+        }
+
+        a {
+            &[href=''] {
+                pointer-events: none;
             }
         }
     }
@@ -199,6 +215,35 @@
     }
 }
 
+.boxed_brand  {
+    border: 1px solid #aaacaf;
+    border-bottom: 0;
+    
+
+    &:last-child {
+        border-bottom: 1px solid #aaacaf;
+    }
+
+    .comercial-title {
+        text-transform: uppercase;
+        color: #0e78bf;
+    }
+
+    &.boxed_last {
+        border-top: 0!important;
+        border-bottom: 1px solid #aaacaf;
+    }
+
+    @media only screen and (max-width: 1024px) {
+        margin:  0 20px;
+    }
+}
+
+.boxed_brand + .boxed_brand {
+    border-top: 0!important;
+}
+
+
 .industy-thumnail {
     padding: 25px 0 10px;
 
@@ -211,6 +256,14 @@
             width: 100%;
             height: 400px;
 
+            @media (min-width: 769px) and (max-width: 990px) {
+                height: 200px;
+            }
+
+            @media (min-width: 991px) and (max-width: 1580px) {
+                height: 300px;
+            }
+
             img {
                 position: absolute;
                 object-fit: cover;
@@ -220,6 +273,7 @@
                 bottom: 0;
                 right: 0;
                 height: 100%;
+                width: 100%;
             }
         }
     }
@@ -305,4 +359,14 @@
         }
     }
 
+}
+
+#industry_items {
+    > div[data-section]:first-child {    
+        padding-top: 50px!important;
+    }
+
+    > div[data-section]:last-child {
+        padding-bottom: 50px!important;
+    }
 }

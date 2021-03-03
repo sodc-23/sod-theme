@@ -8,5 +8,9 @@ footer {
     .site-info {
         text-align: center;
         margin: 20px 0 10px;
+
+        .container {
+            text-align: center!important;
+        }
     }
 }

@@ -77,7 +77,7 @@ get_header();
 					}
 				}
 				?>
-				<div class="item_list_container_from_<?php echo $left . "  " . $shuffle; ?> ">
+				<div id="industry_items" class="item_list_container_from_<?php echo $left . "  " . $shuffle; ?> ">
 				<?php
 				$item_list = get_field("item_list");
 				if ($item_list && count($item_list) > 0):
@@ -177,11 +177,55 @@ get_header();
 						</div>
 					</div>
 				</div>
+				<?php
+				$headline =  get_field("boxed_section_headline");
+
+				if ($headline): ?>
+				<div class="container brand_section_title">				
+					<h2 class="features-title"><?php echo $headline; ?></h2>
+				</div>
+				<?php endif; ?>
+				<?php $boxed_option = get_field("boxed_list_option");
+				$boxed_class = $boxed_option ? "boxed_brand container" : "";
+				 ?>
 				<?php 
 					endif;
 					$brands = get_field("brand_list");
 					if ($brands && count($brands) > 0 ) : ?>
 				
+					<?php
+					
+					foreach ($brands as $brand) :
+						$bd_image = $brand["brand"];
+						$brand_title = $brand["brand_title"];
+						$brand_content = $brand["brand_content"];
+						$bgcolor = $brand["background_color"];
+					
+						
+				?>
+				
+				<div data-section  class="<?php echo $boxed_class; ?>" style="<?php echo $bgcolor ? "background: $bgcolor;" : ""; ?>" >
+					<div class="container brand_content">
+						<div class="columns is-multiline">
+							<div class="column is-one-third-desktop text-center">								
+								<?php sod_generate_image_tag($bd_image); ?>
+							</div>
+							<div class="column">
+								<h4 class="comercial-title" style="text-align: left;"><?php echo $brand_title ? $brand_title : ""; ?></h4>
+								<p><?php echo $brand_content ? $brand_content : ""; ?></p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<?php endforeach; ?>
+				<div class="<?php echo $boxed_class; ?> boxed_last" style="height: 0;"></div>
+				
+				<?php endif ;?>
+
+				<?php
+					$brands = get_field("second_brand_list");
+					if ($brands && count($brands) > 0 ) : ?>
+					<div data-section></div>
 					<?php
 
 					foreach ($brands as $brand) :
@@ -190,9 +234,10 @@ get_header();
 						$brand_content = $brand["brand_content"];
 						$bgcolor = $brand["background_color"];
 					
-				
+						
 				?>
-				<div data-section  style="<?php echo $bgcolor ? "background: $bgcolor;" : ""; ?>" >
+				
+				<div data-section style="<?php echo $bgcolor ? "background: $bgcolor;" : ""; ?>" >
 					<div class="container brand_content">
 						<div class="columns is-multiline">
 							<div class="column is-one-third-desktop text-center">								

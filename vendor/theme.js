@@ -74,7 +74,10 @@ jQuery(function($) {
       mainClass: 'mfp-img-mobile',
       image: {
         verticalFit: true
-      }
+      },
+      gallery:{
+        enabled:true
+      },
     });
   
     var lazyContent = new LazyLoad({});
