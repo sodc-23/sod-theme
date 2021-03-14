@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Commercial Page
+ * Template Name: Military Page
  */
 
 get_header();
@@ -27,7 +27,7 @@ get_header();
                         <div class="columns is-multiline">
                         <?php
                             $industrys = get_posts( array(
-                                "post_type" => "industry",
+                                "post_type" => "military",
                                 'numberposts' => 9,
                                 'order'       => 'ASC',
                                 'orderby'     => 'title',

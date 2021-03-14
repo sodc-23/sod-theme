@@ -82,6 +82,24 @@ function sod_register_new_menu() {
             'supports' => array('author', 'title', 'editor', 'thumbnail', 'excerpt', 'page-attributes', 'comments')
         )
     );
+
+    register_post_type( 'military',
+        array(
+            'labels' => array(
+                'name' => __( 'Military','qode' ),
+                'singular_name' => __( 'Military Item','qode' ),
+                'add_item' => __('New Military Item','qode'),
+                'add_new_item' => __('Add New Military Item','qode'),
+                'edit_item' => __('Edit Military Item','qode')
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'rewrite' => array('slug' => $slug),
+            'menu_position' => 4,
+            'show_ui' => true,
+            'supports' => array('author', 'title', 'editor', 'thumbnail', 'excerpt', 'page-attributes', 'comments')
+        )
+    );
     
 }
 

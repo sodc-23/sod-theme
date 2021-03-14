@@ -61,6 +61,16 @@
     margin-bottom: 40px;
     text-align: center;
     color: #000;
+
+    a {
+        font-size: 19px;
+        line-height: 24px;
+        font-weight: 700;
+        color: #0079c2;
+        text-transform: uppercase;
+        display: inline-block;
+        margin-bottom: 30px;
+    }
 }
 
 .features-title {
@@ -368,5 +378,19 @@
 
     > div[data-section]:last-child {
         padding-bottom: 50px!important;
+    }
+}
+
+.sections-custom-content {
+    @media only screen and (min-width: $xl-desktop) {
+        .section-image {
+            max-width: 80%;
+            width: 100%;
+            margin: 0 auto;
+    
+            img {
+                width: 100%;
+            }
+        }
     }
 }
