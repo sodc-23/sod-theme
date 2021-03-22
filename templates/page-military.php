@@ -26,9 +26,16 @@ get_header();
                     <div class="container">
                         <div class="columns is-multiline">
                         <?php
+                        $industrys_count = get_field("show_count");
+                        if ($industrys_count) {
+                            $industrys_count = (int)$industrys_count;
+                        } else {
+                            $industrys_count = 9;
+                        }
+                        
                             $industrys = get_posts( array(
                                 "post_type" => "military",
-                                'numberposts' => 9,
+                                'numberposts' => $industrys_count,
                                 'order'       => 'ASC',
                                 'orderby'     => 'title',
                                 'post_status' => "publish"
